@@ -9,5 +9,14 @@ use App\Http\Controllers\ClienteController;
 // });
 
 Route::prefix('api')->group(function () {
-    Route::apiResource('clientes', ClienteController::class);
+
+    // AUTOMATIC ROUTES
+    // Route::apiResource('clientes', ClienteController::class);
+
+    // MANUAL ROUTES
+    Route::get('/clientes', [ClienteController::class, 'index']);
+    Route::post('/clientes', [ClienteController::class, 'store']);
+    Route::get('/clientes/{cliente}', [ClienteController::class, 'show']);
+    Route::put('/clientes/{cliente}', [ClienteController::class, 'update']);
+    Route::delete('/clientes/{cliente}', [ClienteController::class, 'destroy']);
 });
