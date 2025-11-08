@@ -14,9 +14,16 @@ class ClienteController extends Controller
     {
         $clientes = Cliente::all();
         
+        // return response()->json([
+        //     'clientes' => $clientes
+        // ]);
+
         return response()->json([
             'clientes' => $clientes
-        ]);
+            ],
+            status: 200,
+            options: JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+        );
     }
 
     /**
